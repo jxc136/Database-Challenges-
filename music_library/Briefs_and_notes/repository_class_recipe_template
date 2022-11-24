@@ -125,7 +125,7 @@ class AlbumRepository
   def create(album)
 
   # Executes the SQL query:
-  # INSERT INTO albums (title, release_year, artist_id) VALUES($1, $2);
+  # INSERT INTO albums (title, release_year, artist_id) VALUES($1, $2, $3);
   # Creates a new album object
   # Returns nothing
 
@@ -161,7 +161,7 @@ repo = AlbumRepository.new
 
 albums = repo.find(1)
 
-albums.name # =>  'A Day at the Races'
+albums.title # =>  'A Day at the Races'
 albums.release_year # => 1977
 albums.artist_id # => 5
 
@@ -171,7 +171,7 @@ repo = AlbumRepository.new
 
 albums = repo.find(2)
 
-albums.name # =>  'News of the World '
+albums.title# =>  'News of the World '
 albums.release_year # => 1978
 albums.artist_id # => 5
 
@@ -180,7 +180,7 @@ albums.artist_id # => 5
 repo = AlbumRepository.new 
 
 new_album = Album.new
-new_album.name = 'Midnights'
+new_album.title = 'Midnights'
 new_album.release_year = '2022'
 new_album.artist_id = '3'
 
@@ -189,7 +189,7 @@ repo.create(new_album)
 albums = repo.all
 last_album = albums.last
 
-expect(last_album.name).to eq 'Midnights'
+expect(last_album.title).to eq 'Midnights'
 expect(last_album.release_year).to eq '2022'
 expect(last_album.artist_id).to eq '3'
 

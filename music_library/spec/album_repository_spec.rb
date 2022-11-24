@@ -54,7 +54,7 @@ RSpec.describe AlbumRepository do
     repo = AlbumRepository.new 
 
     new_album = Album.new
-    new_album.name = 'Midnights'
+    new_album.title = 'Midnights'
     new_album.release_year = '2022'
     new_album.artist_id = '3'
 
@@ -63,7 +63,7 @@ RSpec.describe AlbumRepository do
     albums = repo.all
     last_album = albums.last
 
-    expect(last_album.name).to eq 'Midnights'
+    expect(last_album.title).to eq 'Midnights'
     expect(last_album.release_year).to eq '2022'
     expect(last_album.artist_id).to eq '3'
 
@@ -71,5 +71,6 @@ RSpec.describe AlbumRepository do
 
   
   end 
+
   
 end
